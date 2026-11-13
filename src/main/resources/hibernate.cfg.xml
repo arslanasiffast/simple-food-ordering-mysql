@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- MySQL Connection Settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/food_ordering_db?createDatabaseIfNotExist=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</property>
+
+        <!-- Update with your local MySQL credentials -->
+        <property name="hibernate.connection.username">demo_user</property>
+        <property name="hibernate.connection.password">demo123</property>
+
+        <!-- Connection Pool Size -->
+        <property name="hibernate.connection.pool_size">5</property>
+
+        <!-- Automatically create/update MySQL tables from @Entity classes -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Log generated SQL in console to observe Hibernate working behind the scenes -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Registered Entity Classes -->
+        <mapping class="com.foodapp.entity.Product"/>
+        <mapping class="com.foodapp.entity.FoodOrder"/>
+    </session-factory>
+</hibernate-configuration>
